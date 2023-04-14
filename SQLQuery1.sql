@@ -28,10 +28,13 @@ select * from Teachers where [Age] > @avgAge
 --Task 1.2
 select * from Teachers where [Salary] between 1000 and 3000
 --Task 1.3
-declare @endOfEmail nvarchar(50)
-SELECT @endOfEmail = RIGHT([Email],CHARINDEX('@', REVERSE([Email]))-1) FROM Teachers
-SELECT @endOfEmail
-select [Name],[Surname] from Teachers where @endOfEmail = 'mail.ru'
+--declare @endOfEmail nvarchar(50)
+--select @endOfEmail = RIGHT([Email],CHARINDEX('@', REVERSE([Email]))-1) FROM Teachers
+--select [Name],[Surname] from Teachers where @endOfEmail = 'mail.ru'
+
+--select [Name],[Surname] from Teachers where RIGHT([Email],CHARINDEX('@', REVERSE([Email]))-1) = 'mail.ru'
+
+select [Name],[Surname] from Teachers where [Email] Like '%mail.ru'
 --Task 1.4
 select * from Teachers where [Name] Like 'C%'
 
